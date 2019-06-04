@@ -2,7 +2,7 @@
 
 ## Description
 
-A sample eCommerce app based on RealFakeDoors from Rick and Morty on the episode Rixty Minutes. Written in React with Redux and CSS, mockup created in Sketch.
+A sample eCommerce app based on RealFakeDoors from Rick and Morty on the episode Rixty Minutes (https://www.youtube.com/watch?v=4270c5qWPBg). Written in React with Redux and CSS, mockup created in Sketch.
 
 ## Run this Project
 
