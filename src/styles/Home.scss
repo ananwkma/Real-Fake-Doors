@@ -1,0 +1,96 @@
+@import './shared.scss';
+
+.ContentContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 100px 0px 150px 80px;
+  align-items: center;
+  justify-content: center;
+  height: 650px;
+}
+
+.Banner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+  color: black;
+}
+
+.BannerTextContainer {
+  justify-content: start;
+  height: 100%;
+}
+
+.FeaturedDetails {
+
+}
+
+.FeaturedDetails > h1 {
+  font-size: 60px;
+  margin: 0;
+}
+
+.FeaturedDetails > h2 {
+  font-size: 30px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.FeaturedDetails > h3 {
+  font-size: 18px;
+  font-weight: 200;
+  margin: 0;
+}
+
+.RatingContainer {
+  font-size: 10px;
+  margin: 10px 0;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+}
+
+.FeaturedDetails > button {
+  border-width: 2px;
+  border-color: $secondary-orange;
+  cursor: pointer;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 300;
+  font-family: "Abril Fatface";
+}
+
+.FeaturedContainer {
+  width: 50%;
+  height: 100%;
+}
+
+.FeaturedImageContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.FeaturedImage {
+  height: 600px;
+  padding: 20px;
+  object-fit: scale-down;
+}
+
+.ColorOptionContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.ColorOption {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.Selected {
+  border: 2px solid $secondary-orange;
+  border-radius: 5px;
+}

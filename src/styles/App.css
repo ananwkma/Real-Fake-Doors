@@ -1,0 +1,12 @@
+/*.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: calc(2px + 2vmin);
+}
+
+.col-sm {
+  width: 100vw;
+}*/

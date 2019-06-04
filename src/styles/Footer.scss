@@ -1,0 +1,27 @@
+@import './shared.scss';
+
+.FooterContainer {
+	text-align: center;
+	background-color: $primary-orange;
+	height: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: white;
+	font-size: 10px;
+}
+
+.IconContainer > a {
+	color: white;
+	text-decoration: none;
+	font-size: 20px;
+	margin: 0px 10px;
+}
+
+.FooterDetails {
+	margin: 6px 0px;
+}
+
+.FooterLinksContainer {
+	cursor: pointer;
+}
