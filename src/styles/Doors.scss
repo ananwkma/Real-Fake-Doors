@@ -1,0 +1,19 @@
+@import './shared.scss';
+
+.DoorsContainer{
+  height: 70vh;
+  min-height: 700px;
+  padding: 100px 0px 150px 80px;
+  display: flex;
+  flex-direction: row;
+}
+
+.FilterContainer {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.DoorsContainer {
+  width: 70%;
+}

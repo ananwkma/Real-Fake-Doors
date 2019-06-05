@@ -3,9 +3,12 @@ import Home from './Home';
 import ToolBar from './ToolBar';
 import NavBar from './NavBar';
 import Footer from './Footer';
+import Doors from './Doors';
+import Mission from './Mission';
 import { throttle } from 'lodash';
 import { handleReceiveData } from '../actions';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
   componentDidMount() {
@@ -25,12 +28,16 @@ class App extends Component {
   
   render() {
     return (
-      <div className="col-sm">
-        <ToolBar />
-        <NavBar />
-        <Home />
-        <Footer />
-      </div>
+      <Router> 
+        <div className="col-sm">
+          <ToolBar />
+          <NavBar />
+          <Route exact path="/" component={Home}/>
+          <Route path="/doors" component={Doors}/>
+          <Route path="/mission" component={Mission}/>
+          <Footer />
+        </div>
+      </Router>
     );
   }
 }

@@ -24,7 +24,7 @@ const data = {
       price: 1099.99,
       colors: ["clear", "provincial", "red chestnut"],
       description: "Won't open",
-      rating: 4,
+      rating: 3.8,
       numRatings: 2341,
     },
     4: {
@@ -32,7 +32,7 @@ const data = {
       price: 1299.99,
       colors: ["clear", "provincial", "red chestnut"],
       description: "Won't open",
-      rating: 4.5,
+      rating: 4.2,
       numRatings: 234,
     },
     5: {
@@ -40,7 +40,7 @@ const data = {
       price: 1249.99,
       colors: ["clear", "provincial", "red chestnut"],
       description: "Won't open",
-      rating: 4.5,
+      rating: 4.4,
       numRatings: 6234,
     },
     6: {
@@ -49,14 +49,14 @@ const data = {
       colors: ["clear", "provincial", "red chestnut"],
       description: "Won't open",
       rating: 5,
-      numRatings: 1232,
+      numRatings: 12,
     },
     7: {
       name: "fiberglass2",
       price: 2099.99,
       colors: ["clear", "provincial", "red chestnut"],
       description: "Won't open",
-      rating: 4.5,
+      rating: 3.8,
       numRatings: 234,
     },
   } 

@@ -1,12 +1,13 @@
 @import './shared.scss';
 
 .ContentContainer {
+  height: 70vh;
+  min-height: 700px;
   display: flex;
   flex-direction: row;
   padding: 100px 0px 150px 80px;
   align-items: center;
   justify-content: center;
-  height: 650px;
 }
 
 .Banner {

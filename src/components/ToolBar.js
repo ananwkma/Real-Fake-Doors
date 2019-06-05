@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/ToolBar.scss';
+import { Link } from 'react-router-dom';
 
 class ToolBar extends Component {
 
@@ -15,7 +16,9 @@ class ToolBar extends Component {
     return (
       <div className="container">
         <div className="navLeft"> 
-          <h2 className="HomeButton" onClick={this.scroll}>Real Fake Doors</h2>
+          <Link to='/' className="ToolLink">
+            <h2 className="HomeButton" onClick={this.scroll}>Real Fake Doors</h2>
+          </Link>
         </div>
 
         <div className="navRight"> 
