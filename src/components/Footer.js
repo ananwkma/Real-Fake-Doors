@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/Footer.scss';
+import { Link } from 'react-router-dom';
 
 class Footer extends Component {
 
@@ -15,7 +16,13 @@ class Footer extends Component {
           © 2000-2019 Real Fake Doors, LLC. All Rights Reserved. 
         </div>
         <div className="FooterLinksContainer"> 
-          Privacy Policy | Terms & Conditions | Careers | Contact Us
+          <Link to="/privacy" className="FooterLink"> Privacy Policy </Link>
+          <h2> | </h2>
+          <Link to="/terms" className="FooterLink"> Terms & Conditions </Link>
+          <h2> | </h2>
+          <Link to="/careers" className="FooterLink"> Careers </Link>
+          <h2> | </h2>
+          <Link to="/contact" className="FooterLink"> Contact Us </Link>
         </div>
       </div>
     );

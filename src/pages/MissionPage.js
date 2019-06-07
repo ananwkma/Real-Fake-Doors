@@ -3,7 +3,7 @@ import '../styles/Mission.scss';
 import { connect } from 'react-redux'; 
 import StarRatings from 'react-star-ratings';
 
-class Mission extends Component {
+class MissionPage extends Component {
   state = {
 
   }
@@ -36,4 +36,4 @@ function mapStateToProps({ doors, featured }) {
   return { doors: doors, featured: featured };
 }
 
-export default connect(mapStateToProps)(Mission);
+export default connect(mapStateToProps)(MissionPage);

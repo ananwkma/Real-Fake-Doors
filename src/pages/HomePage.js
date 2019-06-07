@@ -3,7 +3,7 @@ import '../styles/Home.scss';
 import { connect } from 'react-redux'; 
 import StarRatings from 'react-star-ratings';
 
-class Home extends Component {
+class HomePage extends Component {
   state = {
     color: 'clear'
   }
@@ -28,7 +28,7 @@ class Home extends Component {
 
           <div className="FeaturedDetails"> 
             <h1> { ftDoor ? '$' + ftDoor.price : null } </h1>
-            <h2> { ftDoor ? '48" x 96"' + this.capitalize(ftDoor.name) + ' ' + this.capitalize(color) + ' Stain' : null } </h2>
+            <h2> { ftDoor ? ftDoor.size + ' ' + this.capitalize(ftDoor.name) + ' ' + this.capitalize(color) + ' Stain' : null } </h2>
             <h3> { ftDoor ? '• ' + ftDoor.description : null} </h3>
             <div className="RatingContainer"> 
               <StarRatings
@@ -49,7 +49,7 @@ class Home extends Component {
 
         <div className="FeaturedContainer"> 
           <div className="FeaturedImageContainer">
-            <img className="FeaturedImage" src="clear-stain-alder.jpg" alt="DOOR"/>
+            <img className="FeaturedImage" src={ ftDoor ? ftDoor.img : null } alt="DOOR"/>
           </div>
           <div className="ColorOptionContainer">
             <div className="ColorOption">
@@ -78,4 +78,4 @@ function mapStateToProps({ doors, featured }) {
   return { doors: doors, featured: featured };
 }
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(HomePage);

@@ -1,27 +1,40 @@
 @import './shared.scss';
 
 .FooterContainer {
-	text-align: center;
-	background-color: $primary-orange;
-	height: 100px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	color: white;
-	font-size: 10px;
+  text-align: center;
+  background-color: $primary-orange;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  font-size: 10px;
 }
 
 .IconContainer > a {
-	color: white;
-	text-decoration: none;
-	font-size: 20px;
-	margin: 0px 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 0px 10px;
 }
 
 .FooterDetails {
-	margin: 6px 0px;
+  margin: 6px 0px;
 }
 
 .FooterLinksContainer {
-	cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 20px;
+  // background-color: blue;
+}
+
+.FooterLink {
+  color: white;
+  text-decoration: none;
+  font-size: 10px;
+  margin: 0 5px;
 }

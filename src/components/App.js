@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
-import Home from './Home';
+import HomePage from '../pages/HomePage';
+import DoorsPage from '../pages/DoorsPage';
+import MissionPage from '../pages/MissionPage';
+import ContactUsPage from '../pages/ContactUsPage';
+import CareersPage from '../pages/CareersPage';
+import PrivacyPolicyPage from '../pages/PrivacyPolicyPage';
+import TermsConditionsPage from '../pages/TermsConditionsPage';
+import ScrollToTop from './ScrollToTop';
 import ToolBar from './ToolBar';
 import NavBar from './NavBar';
 import Footer from './Footer';
-import Doors from './Doors';
-import Mission from './Mission';
 import { throttle } from 'lodash';
 import { handleReceiveData } from '../actions';
 import { connect } from 'react-redux';
@@ -29,14 +34,20 @@ class App extends Component {
   render() {
     return (
       <Router> 
-        <div className="col-sm">
-          <ToolBar />
-          <NavBar />
-          <Route exact path="/" component={Home}/>
-          <Route path="/doors" component={Doors}/>
-          <Route path="/mission" component={Mission}/>
-          <Footer />
-        </div>
+        <ScrollToTop>
+          <div className="parent">
+            <ToolBar />
+            <NavBar />
+            <Route exact path="/" component={ HomePage }/>
+            <Route path="/doors" component={ DoorsPage }/>
+            <Route path="/mission" component={ MissionPage }/>
+            <Route path="/contact" component={ ContactUsPage }/>
+            <Route path="/careers" component={ CareersPage }/>
+            <Route path="/privacy" component={ PrivacyPolicyPage }/>
+            <Route path="/terms" component={ TermsConditionsPage }/>
+            <Footer />
+          </div>
+        </ScrollToTop>
       </Router>
     );
   }
