@@ -87,7 +87,12 @@ export const getDoorsDataFake = () => {
 
 
 export const getDoorsData = () => {
-  return fetch('http://localhost:3000/').then(res => {
-    return res.text();
-  });
+  return fetch('http://localhost:3000/')
+    .then(res => {
+      return res.text();
+    }).then(resText => {
+      return JSON.parse(resText);
+    })
+
+  ;
 };

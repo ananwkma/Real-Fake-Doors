@@ -7,14 +7,13 @@ let data = require('./data.js')
 
 let tweets = [];
 
-
 app.use(cors());
 
 app.get('/', function (req, res) {
-  res.send(tweets);
+  res.send(data);
 });
 
- app.get('/addDumbTweet', function (req, res) {
+app.get('/addDumbTweet', function (req, res) {
   tweets.push('lol');
   res.send('done');
 });
