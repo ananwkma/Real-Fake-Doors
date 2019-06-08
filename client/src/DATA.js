@@ -20,7 +20,7 @@ const data = {
       description: "Won't open",
       rating: 4.5,
       numRatings: 1023,
-      img: "clear-stain-alder.jpg",
+      img: "mahogany.jpg",
       size: '48" x 96"',
     },
     3: {
@@ -30,7 +30,7 @@ const data = {
       description: "Won't open",
       rating: 3.8,
       numRatings: 2341,
-      img: "clear-stain-alder.jpg",
+      img: "steel.jpg",
       size: '48" x 96"',
     },
     4: {
@@ -40,7 +40,7 @@ const data = {
       description: "Won't open",
       rating: 4.2,
       numRatings: 234,
-      img: "clear-stain-alder.jpg",
+      img: "mahogany2.jpg",
       size: '48" x 96"',
     },
     5: {
@@ -50,7 +50,7 @@ const data = {
       description: "Won't open",
       rating: 4.4,
       numRatings: 6234,
-      img: "clear-stain-alder.jpg",
+      img: "steel2.jpg",
       size: '48" x 96"',
     },
     6: {
@@ -60,7 +60,7 @@ const data = {
       description: "Won't open",
       rating: 5,
       numRatings: 12,
-      img: "clear-stain-alder.jpg",
+      img: "fiberglass.jpg",
       size: '48" x 96"',
     },
     7: {
@@ -70,17 +70,24 @@ const data = {
       description: "Won't open",
       rating: 3.8,
       numRatings: 234,
-      img: "clear-stain-alder.jpg",
+      img: "fiberglass2.jpg",
       size: '48" x 96"',
     },
   } 
 }
 
 
-export const getDoorsData = () => {
+export const getDoorsDataFake = () => {
   return new Promise(function(resolve, reject) {
     setTimeout(function() {
       resolve(data);
     });
+  });
+};
+
+
+export const getDoorsData = () => {
+  return fetch('http://localhost:3000/').then(res => {
+    return res.text();
   });
 };

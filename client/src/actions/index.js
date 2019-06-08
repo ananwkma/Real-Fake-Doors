@@ -5,7 +5,8 @@ export const RECEIVE_DATA = "RECEIVE_DATA";
 export function handleReceiveData() {
   return dispatch => {
     return getDoorsData().then(result => {
-      dispatch(receiveDataAction(result));
+      let parsedResult = JSON.parse(result);
+      dispatch(receiveDataAction(parsedResult));
     })
   }
 }

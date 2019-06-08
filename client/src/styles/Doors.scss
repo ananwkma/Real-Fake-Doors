@@ -18,13 +18,6 @@
   cursor: pointer;
 }
 
-.DoorsContainer {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  padding: 50px 50px;
-}
-
 .ColorFilterContainer {
   display: flex;
   flex-direction: row;
@@ -36,4 +29,12 @@
 
 .ColorFilterImage {
   cursor: pointer;
+}
+
+.DoorsContainer {
+  width: 80%;
+  padding: 50px 50px;
+  display: grid;
+  grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
+  grid-template-columns: 1fr 1fr 1fr;
 }

@@ -48,7 +48,7 @@ class DoorsPage extends Component {
     const { doors } = this.props;
     return (
       Object.values(doors).map((door) => (
-        <Door price={ door.price } name={ door.name } size={ door.size }/>
+        <Door price={ door.price } name={ door.name } size={ door.size } img={ door.img } />
       ))
     )
   }
