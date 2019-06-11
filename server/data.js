@@ -1,4 +1,4 @@
-let data = {
+  let data = {
   featured: {
     0: 1
   },
@@ -15,7 +15,7 @@ let data = {
     },
     2: {
       name: "mahogany",
-      price: 1049.99,
+      price: 999.99,
       colors: ["clear", "provincial", "red chestnut"],
       description: "Won't open",
       rating: 4.5,
@@ -55,7 +55,7 @@ let data = {
     },
     6: {
       name: "fiberglass",
-      price: 1199.99,
+      price: 2599.99,
       colors: ["clear", "provincial", "red chestnut"],
       description: "Won't open",
       rating: 5,

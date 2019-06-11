@@ -7,6 +7,9 @@ let data = require('./data.js')
 
 let tweets = [];
 
+let cart = {};
+
+
 app.use(cors());
 
 app.get('/', function (req, res) {

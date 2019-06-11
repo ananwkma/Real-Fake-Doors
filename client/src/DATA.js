@@ -93,6 +93,5 @@ export const getDoorsData = () => {
     }).then(resText => {
       return JSON.parse(resText);
     })
-
   ;
 };

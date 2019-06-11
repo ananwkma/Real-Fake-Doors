@@ -18,6 +18,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleReceiveData());
+    
     window.addEventListener('resize', this.onResize);
   }
 
@@ -29,7 +30,7 @@ class App extends Component {
     console.log('somehow optimize resize');
   }
 
-  onResize = throttle(this.handleOnResize, 200, { trailing: true });
+  onResize = throttle(this.handleOnResize, 5000, { trailing: true });
   
   render() {
     return (
