@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
 import '../styles/Mission.scss';
 import { connect } from 'react-redux'; 
-import StarRatings from 'react-star-ratings';
 
 class MissionPage extends Component {
-  state = {
-
-  }
 
   render() {
-    const { doors, featured } = this.props;
-    const { color } = this.state;
-    const ftDoor = doors[featured[0]];
 
     return (
       <div className="MissionContainer">
@@ -32,8 +25,4 @@ class MissionPage extends Component {
   }
 }
 
-function mapStateToProps({ doors, featured }) {
-  return { doors: doors, featured: featured };
-}
-
-export default connect(mapStateToProps)(MissionPage);
+export default connect()(MissionPage);

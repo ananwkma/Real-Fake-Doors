@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/Door.scss';
 import { connect } from 'react-redux'; 
-import StarRatings from 'react-star-ratings';
 import { capitalize } from '../util';
 
 class Door extends Component {  
@@ -11,7 +10,7 @@ class Door extends Component {
 
     return (
       <div className="DoorContainer">
-        <img src={img}/>
+        <img src={img} alt={name}/>
         <h1> ${ price } </h1>
         <h2> { size } { capitalize(name) } </h2>
         <button className="DetailsButton"> View Details </button>

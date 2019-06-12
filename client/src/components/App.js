@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   handleOnResize() {
-    console.log('somehow optimize resize');
+    // console.log('somehow optimize resize');
   }
 
   onResize = throttle(this.handleOnResize, 5000, { trailing: true });

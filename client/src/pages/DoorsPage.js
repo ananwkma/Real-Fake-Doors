@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/Doors.scss';
 import { connect } from 'react-redux'; 
-import StarRatings from 'react-star-ratings';
 import Door from '../components/Door';
 import { hasMatch } from '../util';
 
@@ -21,6 +20,8 @@ class DoorsPage extends Component {
         return this.setState({ priceFilter: !this.state.priceFilter });
       case "colorCheckbox":
         return this.setState({ colorFilter: !this.state.colorFilter });
+      default: 
+        return;
     }
   }
 
@@ -99,9 +100,7 @@ class DoorsPage extends Component {
   }
 
   render() {
-    const { doors, featured } = this.props;
     const { color, price, priceMin, priceMax } = this.state;
-    const ftDoor = doors[featured[0]];
 
     return (
       <div className="DoorsPageContainer">
@@ -110,7 +109,7 @@ class DoorsPage extends Component {
           <div className="LabelContainer">
             <input type="checkbox" id="priceCheckbox" onClick={this.toggleCheckbox}/>
             <span className="checkmark"></span>
-            <label className="checkLabel" for="priceCheckbox"></label>
+            <label className="checkLabel"></label>
             <h2> Price </h2>
           </div>
           
@@ -120,7 +119,7 @@ class DoorsPage extends Component {
           <div className="LabelContainer">
             <input type="checkbox" id="colorCheckbox" onClick={this.toggleCheckbox}/>
             <span className="checkmark"></span>
-            <label className="checkLabel" for="colorCheckbox"></label>
+            <label className="checkLabel"></label>
             <h2> Color </h2>
           </div>
 
