@@ -54,3 +54,74 @@
   display: grid;
   grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
 }
+
+.LabelContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.LabelContainer > input {
+  margin-right: 10px; 
+  width: 25px;
+  cursor: pointer;
+}
+
+.LabelContainer > label {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: transparent;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.LabelContainer > label:after {
+  opacity: 1;
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 5px;
+  background: transparent;
+  top: 6px;
+  left: 7px;
+  border: 3px solid #fff;
+  border-top: none;
+  border-right: none;
+
+  transform: rotate(-45deg);
+}
+
+.LabelContainer > span {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+
+
+.LabelContainer input[type=checkbox]:checked ~ .checkmark {
+  background-color: $secondary-orange;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+
+.LabelContainer input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}
+
+.LabelContainer input[type=checkbox]:checked ~ .checkLabel {
+  border: 1px solid #fff;
+}
+
+// .LabelContainer input[type=checkbox]:checked + span:after {
+//   background: $secondary-orange;
+// }
+
+
+// .LabelContainer input[type=checkbox]:checked {
+//   // background: $secondary-orange;
+// }

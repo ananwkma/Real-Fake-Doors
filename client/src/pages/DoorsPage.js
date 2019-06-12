@@ -3,6 +3,7 @@ import '../styles/Doors.scss';
 import { connect } from 'react-redux'; 
 import StarRatings from 'react-star-ratings';
 import Door from '../components/Door';
+import { hasMatch } from '../util';
 
 class DoorsPage extends Component {
   state = {
@@ -10,10 +11,22 @@ class DoorsPage extends Component {
     priceMin: 0,
     priceMax: 1000,
     color: {},
+    priceFilter: false,
+    colorFilter: false,
+  }
+
+  toggleCheckbox = (e) => {
+    switch (e.target.id) {
+      case "priceCheckbox":
+        return this.setState({ priceFilter: !this.state.priceFilter });
+      case "colorCheckbox":
+        return this.setState({ colorFilter: !this.state.colorFilter });
+    }
   }
 
   handleChangePrice = (e) => {
     this.setState({ price: e.target.value });
+    this.setState({ priceFilter: true });
     switch (e.target.value) {
       case "0": 
         this.setState({ priceMin: 0 });
@@ -49,6 +62,8 @@ class DoorsPage extends Component {
   toggleColor = (e) => {
     const { color } = this.state;
     const selectedColor = e.target.id;
+    this.setState({ colorFilter: true });
+    document.getElementById("colorCheckbox").checked = true;
     if (!color[selectedColor]) {
       this.setState({ color: { ...color, [selectedColor]: true }});
     }
@@ -61,10 +76,21 @@ class DoorsPage extends Component {
 
   renderDoors = () => {
     const { doors } = this.props;
-    const { priceMin, priceMax } = this.state;
-    const filteredArray = Object.values(doors).filter((door) => (
-      door.price > priceMin && door.price < priceMax
-    ))
+    const { priceMin, priceMax, color, priceFilter, colorFilter } = this.state;
+    let filteredArray = Object.values(doors);
+
+    if (priceFilter) {
+      filteredArray = filteredArray.filter((door) => (
+        door.price > priceMin && door.price < priceMax
+      ))
+    }
+    
+    if (colorFilter) {
+      filteredArray = filteredArray.filter((door) => (
+        hasMatch(color, door.colors) === true
+      ))
+    }
+
     return (
       filteredArray.map((door) => (
         <Door key={door.name} price={ door.price } name={ door.name } size={ door.size } img={ door.img } />
@@ -80,10 +106,24 @@ class DoorsPage extends Component {
     return (
       <div className="DoorsPageContainer">
         <div className="FilterContainer">
-          <h2> Price </h2>
+          
+          <div className="LabelContainer">
+            <input type="checkbox" id="priceCheckbox" onClick={this.toggleCheckbox}/>
+            <span className="checkmark"></span>
+            <label className="checkLabel" for="priceCheckbox"></label>
+            <h2> Price </h2>
+          </div>
+          
           <input type="range" className="custom-range" id="customRange1" value={price} min="0" max="5" step="1" onChange={this.handleChangePrice}/>
           <label> { priceMax === Infinity ? '$'+priceMin+'+' : '$'+priceMin+'-'+priceMax } </label>
-          <h2> Color </h2>
+
+          <div className="LabelContainer">
+            <input type="checkbox" id="colorCheckbox" onClick={this.toggleCheckbox}/>
+            <span className="checkmark"></span>
+            <label className="checkLabel" for="colorCheckbox"></label>
+            <h2> Color </h2>
+          </div>
+
           <div className="ColorRow">
             <div className="ColorFilterContainer">
               <div className="ColorFilter">

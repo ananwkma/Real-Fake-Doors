@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import '../styles/Home.scss';
 import { connect } from 'react-redux'; 
 import StarRatings from 'react-star-ratings';
+import { capitalize } from '../util';
 
 class HomePage extends Component {
   state = {
     color: 'clear'
-  }
-
-  capitalize = (str) => {
-    return str.charAt(0).toUpperCase() + str.slice(1)
   }
 
   render() {
@@ -28,7 +25,7 @@ class HomePage extends Component {
 
           <div className="FeaturedDetails"> 
             <h1> { ftDoor ? '$' + ftDoor.price : null } </h1>
-            <h2> { ftDoor ? ftDoor.size + ' ' + this.capitalize(ftDoor.name) + ' ' + this.capitalize(color) + ' Stain' : null } </h2>
+            <h2> { ftDoor ? ftDoor.size + ' ' + capitalize(ftDoor.name) + ' ' + capitalize(color) + ' Stain' : null } </h2>
             <h3> { ftDoor ? '• ' + ftDoor.description : null} </h3>
             <div className="RatingContainer"> 
               <StarRatings

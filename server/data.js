@@ -16,7 +16,7 @@
     2: {
       name: "mahogany",
       price: 999.99,
-      colors: ["clear", "provincial", "red chestnut"],
+      colors: ["clear", "red chestnut"],
       description: "Won't open",
       rating: 4.5,
       numRatings: 1023,
@@ -26,7 +26,7 @@
     3: {
       name: "steel",
       price: 1099.99,
-      colors: ["clear", "provincial", "red chestnut"],
+      colors: ["clear", "white"],
       description: "Won't open",
       rating: 3.8,
       numRatings: 2341,
@@ -46,7 +46,7 @@
     5: {
       name: "steel2",
       price: 1249.99,
-      colors: ["clear", "provincial", "red chestnut"],
+      colors: ["white"],
       description: "Won't open",
       rating: 4.4,
       numRatings: 6234,
@@ -56,7 +56,7 @@
     6: {
       name: "fiberglass",
       price: 2599.99,
-      colors: ["clear", "provincial", "red chestnut"],
+      colors: ["white", "provincial"],
       description: "Won't open",
       rating: 5,
       numRatings: 12,
@@ -66,7 +66,7 @@
     7: {
       name: "fiberglass2",
       price: 2099.99,
-      colors: ["clear", "provincial", "red chestnut"],
+      colors: ["clear", "provincial", "white"],
       description: "Won't open",
       rating: 3.8,
       numRatings: 234,
