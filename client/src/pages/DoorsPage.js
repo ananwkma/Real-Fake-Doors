@@ -15,6 +15,7 @@ class DoorsPage extends Component {
   }
 
   toggleCheckbox = (e) => {
+    console.log('clicked')
     switch (e.target.id) {
       case "priceCheckbox":
         return this.setState({ priceFilter: !this.state.priceFilter });
@@ -100,14 +101,14 @@ class DoorsPage extends Component {
   }
 
   render() {
-    const { color, price, priceMin, priceMax } = this.state;
+    const { color, price, priceMin, priceMax, priceFilter, colorFilter } = this.state;
 
     return (
       <div className="DoorsPageContainer">
         <div className="FilterContainer">
           
           <div className="LabelContainer">
-            <input type="checkbox" id="priceCheckbox" onClick={this.toggleCheckbox}/>
+            <input type="checkbox" id="priceCheckbox" checked={priceFilter} onClick={this.toggleCheckbox}/>
             <span className="checkmark"></span>
             <label className="checkLabel"></label>
             <h2> Price </h2>
@@ -117,7 +118,7 @@ class DoorsPage extends Component {
           <label> { priceMax === Infinity ? '$'+priceMin+'+' : '$'+priceMin+'-'+priceMax } </label>
 
           <div className="LabelContainer">
-            <input type="checkbox" id="colorCheckbox" onClick={this.toggleCheckbox}/>
+            <input type="checkbox" id="colorCheckbox" checked={colorFilter} onClick={this.toggleCheckbox}/>
             <span className="checkmark"></span>
             <label className="checkLabel"></label>
             <h2> Color </h2>

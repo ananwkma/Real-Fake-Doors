@@ -5,7 +5,7 @@ let cors = require('cors');
 let data = require('./data.js')
 
 
-let tweets = [];
+// let tweets = [];
 
 let cart = {};
 
@@ -16,10 +16,10 @@ app.get('/', function (req, res) {
   res.send(data);
 });
 
-app.get('/addDumbTweet', function (req, res) {
-  tweets.push('lol');
-  res.send('done');
-});
+// app.get('/addDumbTweet', function (req, res) {
+//   tweets.push('lol');
+//   res.send('done');
+// });
 
 
 app.listen(3000);
