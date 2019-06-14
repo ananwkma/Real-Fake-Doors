@@ -15,11 +15,14 @@ class DoorsPage extends Component {
   }
 
   toggleCheckbox = (e) => {
-    console.log('clicked')
+    console.log('clicked', !document.getElementById("priceCheckbox").checked)
+
     switch (e.target.id) {
-      case "priceCheckbox":
+      case "priceCheckboxButton":
+        document.getElementById("priceCheckbox").checked = !document.getElementById("priceCheckbox").checked;
         return this.setState({ priceFilter: !this.state.priceFilter });
-      case "colorCheckbox":
+      case "colorCheckboxButton":
+        document.getElementById("colorCheckbox").checked = !document.getElementById("colorCheckbox").checked;
         return this.setState({ colorFilter: !this.state.colorFilter });
       default: 
         return;
@@ -31,30 +34,37 @@ class DoorsPage extends Component {
     this.setState({ priceFilter: true });
     switch (e.target.value) {
       case "0": 
+        document.getElementById("priceCheckbox").checked = true;
         this.setState({ priceMin: 0 });
         this.setState({ priceMax: 1000 });
         return;
       case "1":
+        document.getElementById("priceCheckbox").checked = true;
         this.setState({ priceMin: 1001 }); 
         this.setState({ priceMax: 1500 }); 
         return;
       case "2":
+        document.getElementById("priceCheckbox").checked = true;
         this.setState({ priceMin: 1501 }); 
         this.setState({ priceMax: 2000 }); 
         return;
       case "3":
+        document.getElementById("priceCheckbox").checked = true;
         this.setState({ priceMin: 2001 }); 
         this.setState({ priceMax: 2500 }); 
         return;
       case "4":
+        document.getElementById("priceCheckbox").checked = true;
         this.setState({ priceMin: 2501 }); 
         this.setState({ priceMax: 3000 }); 
         return;
       case "5": 
+        document.getElementById("priceCheckbox").checked = true;
         this.setState({ priceMin: 3001 }); 
         this.setState({ priceMax: Infinity }); 
         return;
       default: 
+        document.getElementById("priceCheckbox").checked = true;
         this.setState({ priceMin: 0 }); 
         this.setState({ priceMax: 1000 }); 
         return;
@@ -101,16 +111,16 @@ class DoorsPage extends Component {
   }
 
   render() {
-    const { color, price, priceMin, priceMax, priceFilter, colorFilter } = this.state;
+    const { color, price, priceMin, priceMax } = this.state;
 
     return (
       <div className="DoorsPageContainer">
         <div className="FilterContainer">
           
           <div className="LabelContainer">
-            <input type="checkbox" id="priceCheckbox" checked={priceFilter} onClick={this.toggleCheckbox}/>
+            <input type="checkbox" id="priceCheckbox"/>
             <span className="checkmark"></span>
-            <label className="checkLabel"></label>
+            <label className="checkLabel" id="priceCheckboxButton" onClick={this.toggleCheckbox}></label>
             <h2> Price </h2>
           </div>
           
@@ -118,9 +128,9 @@ class DoorsPage extends Component {
           <label> { priceMax === Infinity ? '$'+priceMin+'+' : '$'+priceMin+'-'+priceMax } </label>
 
           <div className="LabelContainer">
-            <input type="checkbox" id="colorCheckbox" checked={colorFilter} onClick={this.toggleCheckbox}/>
+            <input type="checkbox" id="colorCheckbox"/>
             <span className="checkmark"></span>
-            <label className="checkLabel"></label>
+            <label className="checkLabel" id="colorCheckboxButton" onClick={this.toggleCheckbox}></label>
             <h2> Color </h2>
           </div>
 
