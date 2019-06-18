@@ -9,7 +9,6 @@ let data = require('./data.js')
 
 let cart = {};
 
-
 app.use(cors());
 
 app.get('/', function (req, res) {

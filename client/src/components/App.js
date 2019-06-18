@@ -6,6 +6,7 @@ import ContactUsPage from '../pages/ContactUsPage';
 import CareersPage from '../pages/CareersPage';
 import PrivacyPolicyPage from '../pages/PrivacyPolicyPage';
 import TermsConditionsPage from '../pages/TermsConditionsPage';
+import DoorPage from '../pages/DoorPage';
 import ScrollToTop from './ScrollToTop';
 import ToolBar from './ToolBar';
 import NavBar from './NavBar';
@@ -46,6 +47,7 @@ class App extends Component {
             <Route path="/careers" component={ CareersPage }/>
             <Route path="/privacy" component={ PrivacyPolicyPage }/>
             <Route path="/terms" component={ TermsConditionsPage }/>
+            <Route path="/door" component={ DoorPage }/>
             <Footer />
           </div>
         </ScrollToTop>

@@ -11,7 +11,7 @@ class NavBar extends Component {
         	<h2> Doors </h2>
         </Link>
         <Link to="/" className="NavLink">
-        	<h2> Deals </h2>
+        	<h2> Featured </h2>
         </Link>
         <Link to="/mission" className="NavLink">
         	<h2> Mission </h2>

@@ -15,8 +15,6 @@ class DoorsPage extends Component {
   }
 
   toggleCheckbox = (e) => {
-    console.log('clicked', !document.getElementById("priceCheckbox").checked)
-
     switch (e.target.id) {
       case "priceCheckboxButton":
         document.getElementById("priceCheckbox").checked = !document.getElementById("priceCheckbox").checked;
@@ -105,7 +103,7 @@ class DoorsPage extends Component {
 
     return (
       filteredArray.map((door) => (
-        <Door key={door.name} price={ door.price } name={ door.name } size={ door.size } img={ door.img } />
+        <Door key={door.name} id={ door.id } price={ door.price } name={ door.name } size={ door.size } img={ door.img } />
       ))
     )
   }
@@ -125,7 +123,7 @@ class DoorsPage extends Component {
           </div>
           
           <input type="range" className="custom-range" id="customRange1" value={price} min="0" max="5" step="1" onChange={this.handleChangePrice}/>
-          <label> { priceMax === Infinity ? '$'+priceMin+'+' : '$'+priceMin+'-'+priceMax } </label>
+          <label> { priceMax === Infinity ? `$${priceMin}+` : `$${priceMin}-$${priceMax}` } </label>
 
           <div className="LabelContainer">
             <input type="checkbox" id="colorCheckbox"/>
@@ -137,19 +135,19 @@ class DoorsPage extends Component {
           <div className="ColorRow">
             <div className="ColorFilterContainer">
               <div className="ColorFilter">
-                <img className="ColorFilterImage" src="clear-stain.jpg" alt="clear" id="clear" onClick={this.toggleColor}/>
+                <img className="ColorFilterImage" src={"./images/clear.jpg"} alt="clear" id="clear" onClick={this.toggleColor}/>
                 { color['clear'] ? <hr className="SelectedColor"/> : null }
               </div>
               <div className="ColorFilter">
-                <img className="ColorFilterImage" src="provincial-stain.jpg" alt="provincial" id="provincial" onClick={this.toggleColor}/> 
+                <img className="ColorFilterImage" src="./images/provincial.jpg" alt="provincial" id="provincial" onClick={this.toggleColor}/> 
                 { color['provincial'] ? <hr className="Selected"/> : null }
               </div>
               <div className="ColorFilter">
-                <img className="ColorFilterImage" src="red-chestnut-stain.jpg" alt="red chestnut" id="red-chestnut" onClick={this.toggleColor}/>
+                <img className="ColorFilterImage" src="./images/red-chestnut.jpg" alt="red chestnut" id="red-chestnut" onClick={this.toggleColor}/>
                 { color['red-chestnut'] ? <hr className="Selected"/> : null }
               </div>
               <div className="ColorFilter">
-                <img className="ColorFilterImage" src="white-stain.jpg" alt="white" id="white" onClick={this.toggleColor}/>
+                <img className="ColorFilterImage" src="./images/white.jpg" alt="white" id="white" onClick={this.toggleColor}/>
                 { color['white'] ? <hr className="Selected"/> : null }
               </div>
             </div>

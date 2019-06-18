@@ -6,7 +6,30 @@ import { capitalize } from '../util';
 
 class HomePage extends Component {
   state = {
-    color: 'clear'
+    color: 'clear',
+  }
+
+  toggleColor = (e) => {
+    const { color } = this.state;
+    const selectedColor = e.target.id;
+    this.setState({ colorFilter: true });
+    if (!color[selectedColor]) {
+      this.setState({ color: selectedColor });
+    }
+    else this.setState({ color: selectedColor }); 
+  }
+
+  renderColorOptions = (colors) => {
+    return (
+      colors.map((color) => (
+
+        <div className="ColorFilter" key={color}>
+          <img className="ColorFilterImage" src={`../images/${color.split(' ').join('-')}.jpg`} alt={color} id={color} onClick={this.toggleColor}/>
+          { this.state.color === color ? <hr className="SelectedColor"/> : null }
+        </div>
+
+      ))
+    )
   }
 
   render() {
@@ -46,25 +69,30 @@ class HomePage extends Component {
 
         <div className="FeaturedContainer"> 
           <div className="FeaturedImageContainer">
-            <img className="FeaturedImage" src={ ftDoor ? ftDoor.img : null } alt="DOOR"/>
-          </div>
-          <div className="ColorOptionContainer">
-            <div className="ColorOption">
-              <img className="ColorOptionImage" src="clear-stain.jpg" alt="clear"/>
-              <hr className="Selected"/>
-            </div>
-            <div className="ColorOption">
-              <img className="ColorOptionImage" src="provincial-stain.jpg" alt="provincial"/>  
-              {//<hr className="Selected"/>
-              }
-            </div>
-            <div className="ColorOption">
-              <img className="ColorOptionImage" src="red-chestnut-stain.jpg" alt="red chestnut"/>
-              {//<hr className="Selected"/>
-              }
-            </div>
+            <img className="FeaturedImage" src={ ftDoor ? "./images/" + color.split(' ').join('-') + "-stain-" + ftDoor.name + ".jpg" : null  } alt="DOOR"/>
           </div>
 
+
+         <div className="ColorOptionContainer">
+          { ftDoor ? this.renderColorOptions(ftDoor.colors) : null }
+
+
+          {/*
+            <div className="ColorFilter">
+              <img className="ColorFilterImage" src="./images/clear.jpg" alt="clear" id="clear" onClick={this.toggleColor}/>
+              { color === 'clear' ? <hr className="SelectedColor"/> : null }
+            </div>
+            <div className="ColorFilter">
+              <img className="ColorFilterImage" src="./images/provincial.jpg" alt="provincial" id="provincial" onClick={this.toggleColor}/> 
+              { color === 'provincial' ? <hr className="Selected"/> : null }
+            </div>
+            <div className="ColorFilter">
+              <img className="ColorFilterImage" src="./images/red-chestnut.jpg" alt="red chestnut" id="red-chestnut" onClick={this.toggleColor}/>
+              { color === 'red-chestnut' ? <hr className="Selected"/> : null }
+            </div>
+        */}
+
+          </div>
         </div>
       </div>
     );
