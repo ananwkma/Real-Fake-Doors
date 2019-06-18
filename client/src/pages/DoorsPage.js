@@ -71,7 +71,7 @@ class DoorsPage extends Component {
 
   toggleColor = (e) => {
     const { color } = this.state;
-    const selectedColor = e.target.id;
+    const selectedColor = (e.target.id).split('-').join(' ');
     this.setState({ colorFilter: true });
     document.getElementById("colorCheckbox").checked = true;
     if (!color[selectedColor]) {
