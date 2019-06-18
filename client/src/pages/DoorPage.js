@@ -10,7 +10,6 @@ class DoorPage extends Component {
   }
 
   toggleColor = (e) => {
-    const { color } = this.state;
     const selectedColor = e.target.id;
     this.setState({ color: selectedColor }); 
   }
