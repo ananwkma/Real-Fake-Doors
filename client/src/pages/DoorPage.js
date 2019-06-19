@@ -6,7 +6,7 @@ import '../styles/Home.scss';
 
 class DoorPage extends Component {
   state = {
-    color: 'clear',
+    color: 'light brown',
   }
 
   toggleColor = (e) => {
@@ -14,7 +14,8 @@ class DoorPage extends Component {
     this.setState({ color: selectedColor }); 
   }
 
-  renderColorOptions = (colors) => {
+  renderColorOptions = (colors, name) => {
+
     return (
       colors.map((color) => (
 
@@ -34,16 +35,13 @@ class DoorPage extends Component {
     const { doors } = this.props;
     const curDoor = Object.values(doors).filter((door) => door.id === parseInt(id))[0];
 
-    // console.log(this.state.color);
-    // console.log(curDoor ? "../images/" + color.split(' ').join('-') + "-stain-" + curDoor.name : null)
-
     return (
 
       <div className="ContentContainer">
 
         <div className="FeaturedDetails"> 
           <h1> { curDoor ? '$' + curDoor.price : null } </h1>
-          <h2> { curDoor ? curDoor.size + ' ' + capitalize(curDoor.name) + ' ' + capitalize(color) + ' Stain' : null } </h2>
+          <h2> { curDoor ? curDoor.size + ' ' + capitalize(color) + ' ' + capitalize(curDoor.name) : null } </h2>
           <h3> { curDoor ? '• ' + curDoor.description : null} </h3>
           
           <div className="RatingContainer"> 
@@ -64,11 +62,11 @@ class DoorPage extends Component {
 
         <div className="FeaturedContainer"> 
           <div className="FeaturedImageContainer">
-            <img className="FeaturedImage" src={ curDoor ? "../images/" + color.split(' ').join('-') + "-stain-" + curDoor.name + ".jpg" : null } alt="DOOR"/>
+            <img className="FeaturedImage" src={ curDoor ? "../images/" + color.split(' ').join('-') + '-' + curDoor.name + ".jpg" : null } alt="DOOR"/>
           </div>
 
           <div className="ColorOptionContainer">
-            { curDoor ? this.renderColorOptions(curDoor.colors) : null }
+            { curDoor ? this.renderColorOptions(curDoor.colors, curDoor.name) : null }
           </div>
 
         </div>

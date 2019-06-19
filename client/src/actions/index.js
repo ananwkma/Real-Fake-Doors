@@ -2,6 +2,7 @@ export const RECEIVE_DATA = "RECEIVE_DATA";
 
 export const getDoorsData = () => {
   return fetch('http://35.236.21.220:3005/')
+  // return fetch('http://localhost:3000/')
     .then(res => {
       return res.text();
     }).then(resText => {

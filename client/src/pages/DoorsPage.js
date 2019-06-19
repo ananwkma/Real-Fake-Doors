@@ -135,16 +135,16 @@ class DoorsPage extends Component {
           <div className="ColorRow">
             <div className="ColorFilterContainer">
               <div className="ColorFilter">
-                <img className="ColorFilterImage" src={"./images/clear.jpg"} alt="clear" id="clear" onClick={this.toggleColor}/>
-                { color['clear'] ? <hr className="SelectedColor"/> : null }
+                <img className="ColorFilterImage" src={"./images/light-brown.jpg"} alt="light brown" id="light brown" onClick={this.toggleColor}/>
+                { color['light brown'] ? <hr className="SelectedColor"/> : null }
               </div>
               <div className="ColorFilter">
-                <img className="ColorFilterImage" src="./images/provincial.jpg" alt="provincial" id="provincial" onClick={this.toggleColor}/> 
-                { color['provincial'] ? <hr className="Selected"/> : null }
+                <img className="ColorFilterImage" src="./images/dark-brown.jpg" alt="dark brown" id="dark brown" onClick={this.toggleColor}/> 
+                { color['dark brown'] ? <hr className="Selected"/> : null }
               </div>
               <div className="ColorFilter">
-                <img className="ColorFilterImage" src="./images/red-chestnut.jpg" alt="red chestnut" id="red-chestnut" onClick={this.toggleColor}/>
-                { color['red-chestnut'] ? <hr className="Selected"/> : null }
+                <img className="ColorFilterImage" src="./images/red.jpg" alt="red" id="red" onClick={this.toggleColor}/>
+                { color['red'] ? <hr className="Selected"/> : null }
               </div>
               <div className="ColorFilter">
                 <img className="ColorFilterImage" src="./images/white.jpg" alt="white" id="white" onClick={this.toggleColor}/>

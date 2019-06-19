@@ -6,7 +6,7 @@ import { capitalize } from '../util';
 
 class HomePage extends Component {
   state = {
-    color: 'clear',
+    color: 'light brown',
   }
 
   toggleColor = (e) => {
@@ -48,7 +48,7 @@ class HomePage extends Component {
 
           <div className="FeaturedDetails"> 
             <h1> { ftDoor ? '$' + ftDoor.price : null } </h1>
-            <h2> { ftDoor ? ftDoor.size + ' ' + capitalize(ftDoor.name) + ' ' + capitalize(color) + ' Stain' : null } </h2>
+            <h2> { ftDoor ? ftDoor.size + ' '  + capitalize(color) + ' ' + capitalize(ftDoor.name) : null } </h2>
             <h3> { ftDoor ? '• ' + ftDoor.description : null} </h3>
             <div className="RatingContainer"> 
               <StarRatings
@@ -69,7 +69,7 @@ class HomePage extends Component {
 
         <div className="FeaturedContainer"> 
           <div className="FeaturedImageContainer">
-            <img className="FeaturedImage" src={ ftDoor ? "./images/" + color.split(' ').join('-') + "-stain-" + ftDoor.name + ".jpg" : null  } alt="DOOR"/>
+            <img className="FeaturedImage" src={ ftDoor ? "./images/" + color.split(' ').join('-') + '-' + ftDoor.name + ".jpg" : null  } alt="DOOR"/>
           </div>
 
 
