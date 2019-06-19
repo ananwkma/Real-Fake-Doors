@@ -6,7 +6,8 @@ import '../styles/Home.scss';
 
 class DoorPage extends Component {
   state = {
-    color: 'light brown',
+    curDoor: [],
+    color: '',
   }
 
   toggleColor = (e) => {
@@ -14,14 +15,14 @@ class DoorPage extends Component {
     this.setState({ color: selectedColor }); 
   }
 
-  renderColorOptions = (colors, name) => {
+  renderColorOptions = (colors, name, curColor) => {
 
     return (
       colors.map((color) => (
 
         <div className="ColorFilter" key={color}>
           <img className="ColorFilterImage" src={`../images/${color.split(' ').join('-')}.jpg`} alt={color} id={color} onClick={this.toggleColor}/>
-          { this.state.color === color ? <hr className="SelectedColor"/> : null }
+          { curColor === capitalize(color) ? <hr className="SelectedColor"/> : null }
         </div>
 
       ))
@@ -35,13 +36,17 @@ class DoorPage extends Component {
     const { doors } = this.props;
     const curDoor = Object.values(doors).filter((door) => door.id === parseInt(id))[0];
 
+    let initColor = curDoor ? capitalize(curDoor.colors[0]) : null;
+
+    let curColor = color ? capitalize(color) : initColor;
+
     return (
 
       <div className="ContentContainer">
 
         <div className="FeaturedDetails"> 
           <h1> { curDoor ? '$' + curDoor.price : null } </h1>
-          <h2> { curDoor ? curDoor.size + ' ' + capitalize(color) + ' ' + capitalize(curDoor.name) : null } </h2>
+          <h2> { curDoor ? curDoor.size + ' ' + curColor + ' ' + capitalize(curDoor.name) : null } </h2>
           <h3> { curDoor ? '• ' + curDoor.description : null} </h3>
           
           <div className="RatingContainer"> 
@@ -62,11 +67,11 @@ class DoorPage extends Component {
 
         <div className="FeaturedContainer"> 
           <div className="FeaturedImageContainer">
-            <img className="FeaturedImage" src={ curDoor ? "../images/" + color.split(' ').join('-') + '-' + curDoor.name + ".jpg" : null } alt="DOOR"/>
+            <img className="FeaturedImage" src={ curDoor ? "../images/" + curColor.split(' ').join('-') + '-' + curDoor.name + ".jpg" : null } alt="DOOR"/>
           </div>
 
           <div className="ColorOptionContainer">
-            { curDoor ? this.renderColorOptions(curDoor.colors, curDoor.name) : null }
+            { curDoor ? this.renderColorOptions(curDoor.colors, curDoor.name, curColor) : null }
           </div>
 
         </div>
