@@ -22,7 +22,7 @@ class DoorPage extends Component {
 
         <div className="ColorFilter" key={color}>
           <img className="ColorFilterImage" src={`../images/${color.split(' ').join('-')}.jpg`} alt={color} id={color} onClick={this.toggleColor}/>
-          { curColor === capitalize(color) ? <hr className="SelectedColor"/> : null }
+          { curColor === color ? <hr className="SelectedColor"/> : null }
         </div>
 
       ))
@@ -36,9 +36,9 @@ class DoorPage extends Component {
     const { doors } = this.props;
     const curDoor = Object.values(doors).filter((door) => door.id === parseInt(id))[0];
 
-    let initColor = curDoor ? capitalize(curDoor.colors[0]) : null;
+    let initColor = curDoor ? curDoor.colors[0] : null;
 
-    let curColor = color ? capitalize(color) : initColor;
+    let curColor = color ? color : initColor;
 
     return (
 
@@ -46,7 +46,7 @@ class DoorPage extends Component {
 
         <div className="FeaturedDetails"> 
           <h1> { curDoor ? '$' + curDoor.price : null } </h1>
-          <h2> { curDoor ? curDoor.size + ' ' + curColor + ' ' + capitalize(curDoor.name) : null } </h2>
+          <h2> { curDoor ? curDoor.size + ' ' + capitalize(curColor) + ' ' + capitalize(curDoor.name) : null } </h2>
           <h3> { curDoor ? '• ' + curDoor.description : null} </h3>
           
           <div className="RatingContainer"> 
