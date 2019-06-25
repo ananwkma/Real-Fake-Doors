@@ -2,12 +2,27 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
 import { capitalize } from '../util';
 import StarRatings from 'react-star-ratings';
+import { handleAddToCart } from '../actions';
 import '../styles/Home.scss';
+import _ from 'lodash';
 
 class DoorPage extends Component {
   state = {
-    curDoor: [],
+    curDoor: {},
     color: '',
+  }
+
+
+  componentDidUpdate(prevProps) {
+    // console.log('prevProps:', prevProps);
+    // console.log('currentProps:', this.props);
+    let previousDoors = prevProps.doors;
+    let currentDoors = this.props.doors;
+
+    if (_.isEqual(previousDoors, currentDoors)) { return; }
+
+    // console.log('currentDoors:', currentDoors);
+    this.setState({ curDoor: _.first(currentDoors), color: _.first(_.first(currentDoors).colors) })
   }
 
   toggleColor = (e) => {
@@ -16,17 +31,19 @@ class DoorPage extends Component {
   }
 
   renderColorOptions = (colors, name, curColor) => {
-
     return (
       colors.map((color) => (
-
         <div className="ColorFilter" key={color}>
           <img className="ColorFilterImage" src={`../images/${color.split(' ').join('-')}.jpg`} alt={color} id={color} onClick={this.toggleColor}/>
           { curColor === color ? <hr className="SelectedColor"/> : null }
         </div>
-
       ))
     )
+  }
+
+  addToCart = (id, color) => {
+    // console.log(`id: ${id}, color: ${color}`);
+    this.props.dispatch(handleAddToCart(id, color));
   }
 
   render() {
@@ -62,7 +79,7 @@ class DoorPage extends Component {
               { curDoor ? '(' + curDoor.numRatings + ')' : null }
             </h4>
           </div>
-          <button> Buy Now </button>
+          <button onClick={() => { this.addToCart(curDoor.id, color) }} > Buy Now </button>
         </div>
 
         <div className="FeaturedContainer"> 
