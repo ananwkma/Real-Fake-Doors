@@ -3,6 +3,7 @@ import '../styles/Home.scss';
 import { connect } from 'react-redux'; 
 import StarRatings from 'react-star-ratings';
 import { capitalize } from '../util';
+import { handleAddToCart } from '../actions';
 
 class HomePage extends Component {
   state = {
@@ -32,10 +33,17 @@ class HomePage extends Component {
     )
   }
 
+  addToCart = (curDoor, color) => {
+    this.props.dispatch(handleAddToCart(curDoor, color));
+  }
+
   render() {
     const { doors, featured } = this.props;
     const { color } = this.state;
     const ftDoor = doors[featured[0]];
+
+    let initColor = ftDoor ? ftDoor.colors[0] : null;
+    let curColor = color ? color : initColor;
 
     return (
       <div className="content-container">
@@ -63,7 +71,7 @@ class HomePage extends Component {
                 { ftDoor ? '(' + ftDoor.numRatings + ')' : null }
               </h4>
             </div>
-            <button> Buy Now </button>
+            <button onClick={() => { this.addToCart(ftDoor, curColor) }} > Buy Now </button>
           </div>
         </div>
 
