@@ -12,13 +12,14 @@ import ToolBar from './ToolBar';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import { throttle } from 'lodash';
-import { handleReceiveData } from '../actions';
+import { handleReceiveData, handleReceiveCart } from '../actions';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleReceiveData());
+    this.props.dispatch(handleReceiveCart());
     
     window.addEventListener('resize', this.onResize);
   }

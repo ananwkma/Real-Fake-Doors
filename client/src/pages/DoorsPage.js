@@ -112,52 +112,52 @@ class DoorsPage extends Component {
     const { color, price, priceMin, priceMax } = this.state;
 
     return (
-      <div className="DoorsPageContainer">
-        <div className="FilterContainer">
+      <div className="doors-page-container">
+        <div className="filter-container">
           
-          <div className="LabelContainer">
+          <div className="label-container">
             <input type="checkbox" id="priceCheckbox"/>
             <span className="checkmark"></span>
-            <label className="checkLabel" id="priceCheckboxButton" onClick={this.toggleCheckbox}></label>
+            <label className="check-label" id="priceCheckboxButton" onClick={this.toggleCheckbox}></label>
             <h2> Price </h2>
           </div>
           
           <input type="range" className="custom-range" id="customRange1" value={price} min="0" max="5" step="1" onChange={this.handleChangePrice}/>
           <label> { priceMax === Infinity ? `$${priceMin}+` : `$${priceMin}-$${priceMax}` } </label>
 
-          <div className="LabelContainer">
+          <div className="label-container">
             <input type="checkbox" id="colorCheckbox"/>
             <span className="checkmark"></span>
-            <label className="checkLabel" id="colorCheckboxButton" onClick={this.toggleCheckbox}></label>
+            <label className="check-label" id="colorCheckboxButton" onClick={this.toggleCheckbox}></label>
             <h2> Color </h2>
           </div>
 
-          <div className="ColorRow">
-            <div className="ColorFilterContainer">
-              <div className="ColorFilter">
-                <img className="ColorFilterImage" src={"./images/light-brown.jpg"} alt="light brown" id="light brown" onClick={this.toggleColor}/>
-                { color['light brown'] ? <hr className="SelectedColor"/> : null }
+          <div className="color-row">
+            <div className="color-filter-container">
+              <div className="color-filter">
+                <img className="color-filter-image" src={"./images/light-brown.jpg"} alt="light brown" id="light brown" onClick={this.toggleColor}/>
+                { color['light brown'] ? <hr className="selected-color"/> : null }
               </div>
-              <div className="ColorFilter">
-                <img className="ColorFilterImage" src="./images/dark-brown.jpg" alt="dark brown" id="dark brown" onClick={this.toggleColor}/> 
-                { color['dark brown'] ? <hr className="Selected"/> : null }
+              <div className="color-filter">
+                <img className="color-filter-image" src="./images/dark-brown.jpg" alt="dark brown" id="dark brown" onClick={this.toggleColor}/> 
+                { color['dark brown'] ? <hr className="selected"/> : null }
               </div>
-              <div className="ColorFilter">
-                <img className="ColorFilterImage" src="./images/red.jpg" alt="red" id="red" onClick={this.toggleColor}/>
-                { color['red'] ? <hr className="Selected"/> : null }
+              <div className="color-filter">
+                <img className="color-filter-image" src="./images/red.jpg" alt="red" id="red" onClick={this.toggleColor}/>
+                { color['red'] ? <hr className="selected"/> : null }
               </div>
-              <div className="ColorFilter">
-                <img className="ColorFilterImage" src="./images/white.jpg" alt="white" id="white" onClick={this.toggleColor}/>
-                { color['white'] ? <hr className="Selected"/> : null }
+              <div className="color-filter">
+                <img className="color-filter-image" src="./images/white.jpg" alt="white" id="white" onClick={this.toggleColor}/>
+                { color['white'] ? <hr className="selected"/> : null }
               </div>
             </div>
           </div>
-          <h4 className="ClearAllButton" onClick={this.clearColors}> Clear All </h4>
+          <h4 className="clear-all-button" onClick={this.clearColors}> Clear All </h4>
         </div>
         
         <hr/>
 
-        <div className="DoorsContainer">
+        <div className="doors-container">
           { this.renderDoors() }
         </div>
       </div>

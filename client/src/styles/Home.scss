@@ -1,6 +1,6 @@
 @import './shared.scss';
 
-.ContentContainer {
+.content-container {
   height: 70vh;
   min-height: 700px;
   display: flex;
@@ -10,7 +10,7 @@
   justify-content: center;
 }
 
-.Banner {
+.banner {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -18,33 +18,33 @@
   color: black;
 }
 
-.BannerTextContainer {
+.banner-text-container {
   justify-content: start;
   height: 100%;
 }
 
-.FeaturedDetails {
+.featured-details {
   width: 50%;
 }
 
-.FeaturedDetails > h1 {
+.featured-details > h1 {
   font-size: 60px;
   margin: 0;
 }
 
-.FeaturedDetails > h2 {
+.featured-details > h2 {
   font-size: 30px;
   font-weight: 400;
   margin: 0;
 }
 
-.FeaturedDetails > h3 {
+.featured-details > h3 {
   font-size: 18px;
   font-weight: 200;
   margin: 0;
 }
 
-.RatingContainer {
+.rating-container {
   font-size: 10px;
   margin: 10px 0;
   flex-direction: row;
@@ -52,7 +52,7 @@
   align-items: center;
 }
 
-.FeaturedDetails > button {
+.featured-details > button {
   border-width: 2px;
   border-color: $secondary-orange;
   background-color: white;
@@ -64,36 +64,36 @@
   font-family: "Abril Fatface";
 }
 
-.FeaturedContainer {
+.featured-container {
   width: 50%;
   height: 100%;
 }
 
-.FeaturedImageContainer {
+.featured-image-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.FeaturedImage {
+.featured-image {
   height: 100%;
   width: 100%;
-  padding: 20px;
+  padding: 20px 0;
   object-fit: scale-down;
 }
 
-.ColorOptionContainer {
+.color-option-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.ColorOption {
+.color-option {
   margin: 0 10px;
   cursor: pointer;
 }
 
-.Selected {
+.selected {
   border: 2px solid $secondary-orange;
   border-radius: 5px;
   width: 30px;

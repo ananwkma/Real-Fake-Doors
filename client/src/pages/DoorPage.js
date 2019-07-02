@@ -4,25 +4,11 @@ import { capitalize } from '../util';
 import StarRatings from 'react-star-ratings';
 import { handleAddToCart } from '../actions';
 import '../styles/Home.scss';
-import _ from 'lodash';
 
 class DoorPage extends Component {
   state = {
     curDoor: {},
     color: '',
-  }
-
-
-  componentDidUpdate(prevProps) {
-    // console.log('prevProps:', prevProps);
-    // console.log('currentProps:', this.props);
-    let previousDoors = prevProps.doors;
-    let currentDoors = this.props.doors;
-
-    if (_.isEqual(previousDoors, currentDoors)) { return; }
-
-    // console.log('currentDoors:', currentDoors);
-    this.setState({ curDoor: _.first(currentDoors), color: _.first(_.first(currentDoors).colors) })
   }
 
   toggleColor = (e) => {
@@ -33,17 +19,16 @@ class DoorPage extends Component {
   renderColorOptions = (colors, name, curColor) => {
     return (
       colors.map((color) => (
-        <div className="ColorFilter" key={color}>
-          <img className="ColorFilterImage" src={`../images/${color.split(' ').join('-')}.jpg`} alt={color} id={color} onClick={this.toggleColor}/>
-          { curColor === color ? <hr className="SelectedColor"/> : null }
+        <div className="color-filter" key={color}>
+          <img className="color-filter-image" src={`../images/${color.split(' ').join('-')}.jpg`} alt={color} id={color} onClick={this.toggleColor}/>
+          { curColor === color ? <hr className="selected-color"/> : null }
         </div>
       ))
     )
   }
 
-  addToCart = (id, color) => {
-    // console.log(`id: ${id}, color: ${color}`);
-    this.props.dispatch(handleAddToCart(id, color));
+  addToCart = (curDoor, color) => {
+    this.props.dispatch(handleAddToCart(curDoor, color));
   }
 
   render() {
@@ -54,19 +39,18 @@ class DoorPage extends Component {
     const curDoor = Object.values(doors).filter((door) => door.id === parseInt(id))[0];
 
     let initColor = curDoor ? curDoor.colors[0] : null;
-
     let curColor = color ? color : initColor;
 
     return (
 
-      <div className="ContentContainer">
+      <div className="content-container">
 
-        <div className="FeaturedDetails"> 
+        <div className="featured-details"> 
           <h1> { curDoor ? '$' + curDoor.price : null } </h1>
           <h2> { curDoor ? curDoor.size + ' ' + capitalize(curColor) + ' ' + capitalize(curDoor.name) : null } </h2>
           <h3> { curDoor ? '• ' + curDoor.description : null} </h3>
           
-          <div className="RatingContainer"> 
+          <div className="rating-container"> 
             <StarRatings
               rating={ curDoor ? curDoor.rating : 0 }
               starRatedColor="orange"
@@ -79,15 +63,15 @@ class DoorPage extends Component {
               { curDoor ? '(' + curDoor.numRatings + ')' : null }
             </h4>
           </div>
-          <button onClick={() => { this.addToCart(curDoor.id, color) }} > Buy Now </button>
+          <button onClick={() => { this.addToCart(curDoor, curColor) }} > Buy Now </button>
         </div>
 
-        <div className="FeaturedContainer"> 
-          <div className="FeaturedImageContainer">
-            <img className="FeaturedImage" src={ curDoor ? "../images/" + curColor.split(' ').join('-') + '-' + curDoor.name + ".jpg" : null } alt="DOOR"/>
+        <div className="featured-container"> 
+          <div className="featured-image-container">
+            <img className="featured-image" src={ curDoor ? "../images/" + curColor.split(' ').join('-') + '-' + curDoor.name + ".jpg" : null } alt="DOOR"/>
           </div>
 
-          <div className="ColorOptionContainer">
+          <div className="color-option-container">
             { curDoor ? this.renderColorOptions(curDoor.colors, curDoor.name, curColor) : null }
           </div>
 

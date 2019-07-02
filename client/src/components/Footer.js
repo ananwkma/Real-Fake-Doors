@@ -6,23 +6,23 @@ class Footer extends Component {
 
   render() {
     return (
-      <div className="FooterContainer">
-        <div className="IconContainer">
+      <div className="footer-container">
+        <div className="icon-container">
           <a href="https://google.com/"> <ion-icon name="logo-facebook"></ion-icon> </a>
           <a href="https://google.com/"> <ion-icon name="logo-twitter"></ion-icon> </a>
           <a href="https://google.com/"> <ion-icon name="logo-instagram"></ion-icon> </a>
         </div>
-        <div className="FooterDetails">
+        <div className="footer-details">
           © 2000-2019 Real Fake Doors, LLC. All Rights Reserved. 
         </div>
-        <div className="FooterLinksContainer"> 
-          <Link to="/privacy" className="FooterLink"> Privacy Policy </Link>
+        <div className="footer-links-container"> 
+          <Link to="/privacy" className="footer-link"> Privacy Policy </Link>
           <h2> | </h2>
-          <Link to="/terms" className="FooterLink"> Terms & Conditions </Link>
+          <Link to="/terms" className="footer-link"> Terms & Conditions </Link>
           <h2> | </h2>
-          <Link to="/careers" className="FooterLink"> Careers </Link>
+          <Link to="/careers" className="footer-link"> Careers </Link>
           <h2> | </h2>
-          <Link to="/contact" className="FooterLink"> Contact Us </Link>
+          <Link to="/contact" className="footer-link"> Contact Us </Link>
         </div>
       </div>
     );

@@ -23,9 +23,9 @@ class HomePage extends Component {
     return (
       colors.map((color) => (
 
-        <div className="ColorFilter" key={color}>
-          <img className="ColorFilterImage" src={`../images/${color.split(' ').join('-')}.jpg`} alt={color} id={color} onClick={this.toggleColor}/>
-          { this.state.color === color ? <hr className="SelectedColor"/> : null }
+        <div className="color-filter" key={color}>
+          <img className="color-filter-image" src={`../images/${color.split(' ').join('-')}.jpg`} alt={color} id={color} onClick={this.toggleColor}/>
+          { this.state.color === color ? <hr className="selected-color"/> : null }
         </div>
 
       ))
@@ -38,19 +38,19 @@ class HomePage extends Component {
     const ftDoor = doors[featured[0]];
 
     return (
-      <div className="ContentContainer">
+      <div className="content-container">
 
-        <div className="Banner">
-          <div className="BannerTextContainer">
+        <div className="banner">
+          <div className="banner-text-container">
             <h1> Hey, are you tired of real doors cluttering up your house, </h1>
             <h2> where you open 'em up and they actually go somewhere? </h2>
           </div>
 
-          <div className="FeaturedDetails"> 
+          <div className="featured-details"> 
             <h1> { ftDoor ? '$' + ftDoor.price : null } </h1>
             <h2> { ftDoor ? ftDoor.size + ' '  + capitalize(color) + ' ' + capitalize(ftDoor.name) : null } </h2>
             <h3> { ftDoor ? '• ' + ftDoor.description : null} </h3>
-            <div className="RatingContainer"> 
+            <div className="rating-container"> 
               <StarRatings
                 rating={ ftDoor ? ftDoor.rating : 0 }
                 starRatedColor="orange"
@@ -67,31 +67,13 @@ class HomePage extends Component {
           </div>
         </div>
 
-        <div className="FeaturedContainer"> 
-          <div className="FeaturedImageContainer">
-            <img className="FeaturedImage" src={ ftDoor ? "./images/" + color.split(' ').join('-') + '-' + ftDoor.name + ".jpg" : null  } alt="DOOR"/>
+        <div className="featured-container"> 
+          <div className="featured-image-container">
+            <img className="featured-image" src={ ftDoor ? "./images/" + color.split(' ').join('-') + '-' + ftDoor.name + ".jpg" : null  } alt="DOOR"/>
           </div>
 
-
-         <div className="ColorOptionContainer">
-          { ftDoor ? this.renderColorOptions(ftDoor.colors) : null }
-
-
-          {/*
-            <div className="ColorFilter">
-              <img className="ColorFilterImage" src="./images/clear.jpg" alt="clear" id="clear" onClick={this.toggleColor}/>
-              { color === 'clear' ? <hr className="SelectedColor"/> : null }
-            </div>
-            <div className="ColorFilter">
-              <img className="ColorFilterImage" src="./images/provincial.jpg" alt="provincial" id="provincial" onClick={this.toggleColor}/> 
-              { color === 'provincial' ? <hr className="Selected"/> : null }
-            </div>
-            <div className="ColorFilter">
-              <img className="ColorFilterImage" src="./images/red-chestnut.jpg" alt="red chestnut" id="red-chestnut" onClick={this.toggleColor}/>
-              { color === 'red-chestnut' ? <hr className="Selected"/> : null }
-            </div>
-        */}
-
+          <div className="color-option-container">
+            { ftDoor ? this.renderColorOptions(ftDoor.colors) : null }
           </div>
         </div>
       </div>

@@ -1,17 +1,17 @@
 @import './shared.scss';
 
-.AboutContainer {
+.about-container {
 	padding: 0px 5vw 0px 5vw;
 	text-align: left;
 	margin-top: 100px;
 }
 
-.ProfilePicContainer {
+.profile-pic-container {
 	text-align: center;
 	margin-bottom: 60px;
 }
 
-.ProfilePic {
+.profile-pic {
 	height: 300px;
 	width: 300px;
 	border-style: solid;
@@ -19,12 +19,12 @@
 	border-color: #AAAAAA;
 }
 
-.Blurb {
+.blurb {
 	font-style: italic;
 }
 
 @media (min-width: $mobile-size) and (orientation:landscape) {
-	.AboutContainer {
+	.about-container {
 		padding: 0px 150px 0px 150px;
 		text-align: justify;
 		margin-top: 100px;

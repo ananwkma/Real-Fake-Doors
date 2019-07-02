@@ -1,6 +1,6 @@
 @import './shared.scss';
 
-.NavBarContainer {
+.nav-bar-container {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -8,13 +8,13 @@
 	width: 100%;
 }
 
-.NavLink {
+.nav-link {
 	padding: 5px 20px;
 	cursor: pointer;
 	text-decoration: none;
 }
 
-.NavLink > h2 {
+.nav-link > h2 {
 	font-size: 20px;
 	font-weight: 400;
 	color: white;

@@ -4,14 +4,14 @@ import '../styles/About.scss';
 class About extends Component {
   render() {
     return (
-      <div className="AboutContainer">
-        <div className="ProfilePicContainer">
-          <img className="ProfilePic" src="circlelinkedincropbnw.png" alt="profilepic"/>
+      <div className="about-container">
+        <div className="profile-pic-container">
+          <img className="profile-pic" src="circlelinkedincropbnw.png" alt="profilepic"/>
         </div>
         
         <hr/>
 
-        <h2 className="Blurb">
+        <h2 className="blurb">
           I am a full-stack developer looking for opportunities. 
           I most recently worked in QA at Apple, fixing and reporting graphical errors. 
           Now I am using both my visual and technical ability to create beautiful responsive 

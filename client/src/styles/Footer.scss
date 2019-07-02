@@ -1,6 +1,6 @@
 @import './shared.scss';
 
-.FooterContainer {
+.footer-container {
   text-align: center;
   background-color: $primary-orange;
   height: 100px;
@@ -11,18 +11,18 @@
   font-size: 10px;
 }
 
-.IconContainer > a {
+.icon-container > a {
   color: white;
   text-decoration: none;
   font-size: 20px;
   margin: 0px 10px;
 }
 
-.FooterDetails {
+.footer-details {
   margin: 6px 0px;
 }
 
-.FooterLinksContainer {
+.footer-links-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -32,7 +32,7 @@
   // background-color: blue;
 }
 
-.FooterLink {
+.footer-link {
   color: white;
   text-decoration: none;
   font-size: 10px;

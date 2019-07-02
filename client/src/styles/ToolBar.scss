@@ -6,7 +6,7 @@
   color: #000000;
 }
 
-.navLeft {
+.nav-left {
   width: 50%;
   display: flex;
   align-items: center;
@@ -14,18 +14,18 @@
   justify-content: center;
 }
 
-.ToolLink {
+.tool-link {
   text-decoration: none;
 }
 
-.HomeButton {
+.home-button {
   font-weight: 400;
   font-size: 18px;
   cursor: pointer;
   color: black;
 }
 
-.navRight {
+.nav-right {
   width: 50%;
   display: flex;
   flex-direction: row;
@@ -34,16 +34,27 @@
   padding-right: 30px;
 }
 
-.navRight > ion-icon {
+.nav-right > ion-icon {
   color: black;
   font-size: 30px;
   margin: 0px 20px;
 }
 
-.navRight > ion-icon:hover {
+.nav-right > ion-icon:hover {
   color: $secondary-orange;
   cursor: pointer;
 }
+
+.cart-has-items {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  background-color: $primary-orange;
+  width: 10px;
+  height: 10px;
+  border-radius: 100px;
+}
+
 
 @media (min-width: $mobile-size) and (orientation:landscape) {
   .container {
@@ -51,19 +62,19 @@
     display: flex;
     flex-direction: row;
   }
-  .navLeft {
+  .nav-left {
     width: 50vw;
     padding-left: 20px;
     justify-content: left;
   }
-  .navRight {
+  .nav-right {
     width: 50vw;
     flex-direction: row;
   }
-  .navItem {
+  .nav-item {
     margin-left: 70px;
   }
-  .HomeButton {
+  .home-button {
     font-weight: 400;
     font-size: 25px;
   }

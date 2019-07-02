@@ -6,14 +6,14 @@ class NavBar extends Component {
 
   render() {
     return (
-      <div className="NavBarContainer">
-      	<Link to="/doors" className="NavLink"> 
+      <div className="nav-bar-container">
+      	<Link to="/doors" className="nav-link"> 
         	<h2> Doors </h2>
         </Link>
-        <Link to="/" className="NavLink">
+        <Link to="/" className="nav-link">
         	<h2> Featured </h2>
         </Link>
-        <Link to="/mission" className="NavLink">
+        <Link to="/mission" className="nav-link">
         	<h2> Mission </h2>
         </Link>
       </div>
