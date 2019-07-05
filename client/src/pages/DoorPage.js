@@ -39,7 +39,9 @@ class DoorPage extends Component {
     const curDoor = Object.values(doors).filter((door) => door.id === parseInt(id))[0];
 
     let initColor = curDoor ? curDoor.colors[0] : null;
+
     let curColor = color ? color : initColor;
+    if (curDoor && curDoor.colors.indexOf(color) < 0) curColor = initColor; 
 
     return (
 
