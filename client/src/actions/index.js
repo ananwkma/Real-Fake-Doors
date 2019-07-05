@@ -11,8 +11,8 @@ export function handleReceiveData() {
 }
 
 const getDoorsData = () => {
-  return fetch('http://35.236.21.220:3005/')
-  // return fetch('http://localhost:3000/')
+  // return fetch('http://35.236.21.220:3005/')
+  return fetch('http://localhost:3000/')
     .then(res => {
       return res.text();
     }).then(resText => {
@@ -26,8 +26,8 @@ export function handleAddToCart(curDoor, color) {
   const dictId = id + '-' + size + '-' + color;
 
   return dispatch => {
-    return fetch('http://35.236.21.220:3005/cart', {
-    // return fetch('http://localhost:3000/cart', {
+    // return fetch('http://35.236.21.220:3005/cart', {
+    return fetch('http://localhost:3000/cart', {
       method: 'PUT', // *GET, POST, PUT, DELETE, etc.
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ dictId: dictId, price: price, id: id, name: name }), // body data type must match "Content-Type" header
@@ -41,8 +41,8 @@ export function handleAddToCart(curDoor, color) {
 
 export function handleReceiveCart() {
   return dispatch => {
-    return fetch('http://35.236.21.220:3005/getCart') 
-    // return fetch('http://localhost:3000/getCart') 
+    // return fetch('http://35.236.21.220:3005/getCart') 
+    return fetch('http://localhost:3000/getCart') 
       .then(res => {
         return res.text();
       }).then(res => {

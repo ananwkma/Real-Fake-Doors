@@ -3,12 +3,14 @@ import '../styles/ToolBar.scss';
 import '../styles/Cart.scss';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import CartItem from './CartItem';
+import Cart from './Cart';
+import Search from './Search';
 
 class ToolBar extends Component {
 
   state = {
     cartVisibility: false,
+    searchVisibility: false,
   }
 
   componentDidMount = () => {
@@ -16,11 +18,15 @@ class ToolBar extends Component {
   }
 
   toggleHide = () => {
-    this.setState({ cartVisibility: false })
+    this.setState({ cartVisibility: false });
   }
 
   handleClickCart = () => {
     this.setState({ cartVisibility: true });
+  }
+
+  handleClickSearch = () => {
+    this.setState({ searchVisibility: !this.state.searchVisibility });
   }
 
   scroll = (e) => {
@@ -29,7 +35,7 @@ class ToolBar extends Component {
 
   render() {
     const { cart } = this.props;
-    const { cartVisibility } = this.state;
+    const { cartVisibility, searchVisibility } = this.state;
     let total = 0;
 
     Object.values(cart).map(door => (
@@ -45,43 +51,13 @@ class ToolBar extends Component {
         </div>
 
         <div className="nav-right"> 
-          <ion-icon name="search" className="nav-item" id="search" onClick={this.handleClickSearch}></ion-icon> 
+          <ion-icon name="search" className="search-icon" id="search" onClick={this.handleClickSearch}></ion-icon> 
+          { searchVisibility ? <Search/> : null }
           <ion-icon name="person" className="nav-item" id="account" onClick={this.handleClickAccount}></ion-icon>
           <ion-icon name="cart" className="nav-item" id="cart" onClick={this.handleClickCart}></ion-icon>
         </div>
         { Object.values(cart).length > 0 ? <div className="cart-has-items"/> : null }
-        { cartVisibility ? 
-          <div className="cart">
-            <div className="item-container"> 
-              { Object.entries(cart).map((door) => (
-                <div key={door[0]}>
-                  <CartItem objId={door[0]} quantity={door[1].quantity} name={door[1].name} price={door[1].price}/>
-                  <hr/>
-                </div>
-              )) }
-
-            </div>
-
-            <div className="total-container">
-              <div className="total-sub-container">
-                <h3> Subtotal </h3> 
-                <h2> { '$' + total.toFixed(2) } </h2>
-              </div>
-              <div className="total-sub-container">
-                <h3> Tax (8.75%) </h3> 
-                <h2> { '$' + (total * 0.0875).toFixed(2) } </h2>
-              </div>
-              <div className="total-sub-container">
-                <h2> Total </h2> 
-                <h1> { '$' + (total + (total * 0.0875)).toFixed(2) } </h1>
-              </div>
-            </div>
-
-            <button className="checkout-button"> Checkout </button> 
-          </div>
-          : null
-        }
-        
+        { cartVisibility ? <Cart/> : null }
       </div>
     );
   }

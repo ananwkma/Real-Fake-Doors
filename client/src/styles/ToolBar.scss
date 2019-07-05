@@ -29,6 +29,7 @@
   width: 50%;
   display: flex;
   flex-direction: row;
+
   align-items: center;
   justify-content: flex-end;
   padding-right: 30px;
@@ -53,6 +54,29 @@
   width: 10px;
   height: 10px;
   border-radius: 100px;
+}
+
+.search-icon {
+  margin-left: 70px;
+  animation: shift-left ease 0.4s forwards;
+}
+
+@keyframes grow-left {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes shift-left {
+  from {
+    transform: translateX(-15px);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 
