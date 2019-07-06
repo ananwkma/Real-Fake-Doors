@@ -33,14 +33,32 @@ class Search extends Component {
       doorArr.map((door, idx) => (
         <Link className="autofill-link" key={door.name} to={`/door/${door.id}`}> 
           <div className="autofill-options"  style={{top: (29*idx+"px")}}> 
-            { capitalize(door.name) } 
+            { this.createBoldDoorName(door.name) } 
           </div> 
           <Route path={`/door/${door.id}`}/>
         </Link>
       ))
     )
-
   }
+
+  createBoldDoorName = (doorName) => {
+    const { searchText } = this.state;
+    const substrIdx = doorName.indexOf(searchText);
+    const substrIdxEnd = searchText.length + substrIdx;
+
+    const subStart = capitalize(doorName.substr(0, substrIdx));
+    const subMid = substrIdx === 0 ? capitalize(doorName.slice(substrIdx, substrIdxEnd)) : doorName.slice(substrIdx, substrIdxEnd);
+    const subEnd = doorName.substr(substrIdxEnd, doorName.length);
+
+    return (
+      <div>
+        { subStart }
+        <strong>{ subMid }</strong>
+        { subEnd }
+      </div>
+    )
+  }
+
 
   render() {
     const { autofillVisibility } = this.state;
